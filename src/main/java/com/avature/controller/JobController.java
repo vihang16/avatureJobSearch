@@ -26,7 +26,7 @@ public class JobController {
 
     @GetMapping("/all")
     public List<Job> getAllJobs(@RequestParam(value = "number", defaultValue = "0") Integer pageNumber,
-                                @RequestParam( value = "size", defaultValue = "10") Integer pageSize,
+                                @RequestParam( value = "size", defaultValue = "10") @Max(30) Integer pageSize,
                                 @RequestParam(value = "title", required = false) String title,
                                 @RequestParam(value = "company", required = false) String company,
                                 @RequestParam(value = "minSalary", required = false) @Min(0) Integer minSalary,

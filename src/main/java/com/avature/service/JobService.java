@@ -5,6 +5,7 @@ import com.avature.exception.InvalidJobException;
 import com.avature.repository.JobRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -34,7 +35,7 @@ public class JobService {
     }
 
     public List<Job> retrieveAllJobs(int number, int size, String title, Integer minSalary, Integer maxSalary, String description, List<String> preferredSkills, String company){
-        var query = new Query().with(Pageable.ofSize(size));
+        var query = new Query().with(PageRequest.of(number, size));
         List<Criteria> criteriaList = new ArrayList<>();
         if( title != null && !title.isBlank())
             criteriaList.add(Criteria.where("title").regex(title, "i"));
