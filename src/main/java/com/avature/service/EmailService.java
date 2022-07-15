@@ -26,13 +26,13 @@ public class EmailService {
     }
 
     String sender;
-    String HOST = "http://localhost:8080/";
+    String HOST = "http://localhost:8080/jobs/";
     UserRepository userRepository;
     JavaMailSender javaMailSender;
 
     public void sendEmailWithDetails(Job job){
         List<User> usersList;
-        if(!job.getPreferredSkills().isEmpty())
+        if( job.getPreferredSkills() != null && !job.getPreferredSkills().isEmpty())
             usersList = userRepository.findBySkills(job.getPreferredSkills());
         else{
             usersList = userRepository.findAll();
