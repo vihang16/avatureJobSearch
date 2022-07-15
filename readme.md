@@ -23,6 +23,7 @@ Below are the technologies used for this project.
 - Also while sending notifications to the user, if any error occurs, it will throw user an error even job posted successfully.
 - currently no way to update job posting.
 - while making job search, skill set are case-sensitive as it matches with list of skills using `$in` operator. Also, it checks exact number of skills. i.e. Candidate has skill of `Java` and `Python` but job needs only `Java`, it is not sending notification to the users.
-- Also while searching for job, it is checking for job 
+- Also while searching for job, it is checking for job.
+- Exception handler not working as expected.
 - Currently, there is no provisioning to add additional parameters for search criteria.
 - when I ran application through docker, facing issue connecting mongodb via mongodbCompass.
